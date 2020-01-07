@@ -23,6 +23,6 @@ a[href*="link-group"] {
   color: red;
 }
 
-body p:last-child:hover {
+body p:nth-child(8):hover{
   font-style: italic;
 }
