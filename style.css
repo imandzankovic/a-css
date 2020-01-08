@@ -1,28 +1,82 @@
-a[href^="https://www.google.com"] {
-  color: green;
+body {
+  background: #050210;
 }
 
-a[href*="link-group"] {
-  color: red;
+.wrapper {
+  background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+}
+.circle-wrap {
+  margin: 50px auto;
+  width: 150px;
+  height: 150px;
+  background: #e6e2e7;
+  border-radius: 50%;
 }
 
-#first-div p:nth-child(2)::after {
-  content: " - NEW";
-  color: yellow;
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
 }
 
-#first-div p:nth-child(3)::after {
-  content: " - NEW";
-  color: yellow;
-}
-#second-div p:nth-child(odd) {
-  color: blue;
+.circle-wrap .circle .mask {
+  background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+  animation: fill 2s infinite ease-in-out;
 }
 
-#second-div p:nth-child(even) {
-  color: red;
+.circle-wrap .circle .mask .fill {
+  background: black;
 }
 
-body p:nth-child(8):hover{
-  font-style: italic;
+.circle-wrap .circle .mask-half,
+.circle-wrap .circle .mask.full {
+  background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+}
+.circle-wrap .circle .mask full .wrapper {
+  width: 50px;
+  background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+}
+
+.circle-wrap .circle .fill {
+  animation: fill 2s infinite ease-in-out;
+  transform: rotate(360deg);
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0 4px 8px 2px #fb5dad, 0 6px 20px 2px #55fb9f,
+      0 8px 30px 2px #b97aff;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 4px 8px 2px #fb5dad, 0 6px 20px 2px #55fb9f,
+      0 8px 30px 2px #b97aff;
+  }
+}
+
+.circle-wrap .inside-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(#36343b, #050210);
+  line-height: 130px;
+  animation: sk-bounce 2s infinite ease-in;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+  z-index: 100;
+}
+
+@keyframes sk-bounce {
+  0% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: #050210;
+  }
 }
